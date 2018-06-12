@@ -16,7 +16,7 @@
     },
 	"repoURL": {
       "type": "string",
-      "defaultValue": "https://github.com/raje678/PrivateLabelLite/PrivateLabelLite.git",
+      "defaultValue": "https://github.com/raje678/PrivateLabelLite.git",
       "metadata": {
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
