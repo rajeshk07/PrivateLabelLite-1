@@ -36,7 +36,7 @@
     "skuName": "S1",
     "skuCapacity": "1",
     "administratorLogin": "[Concat(parameters('siteName'), '-sqladmin')]",
-    "databaseName": "pwadb",
+    "databaseName": "master",
     "collation": "SQL_Latin1_General_CP1_CI_AS",
     "edition": "Basic",
     "maxSizeBytes": "1073741824",
