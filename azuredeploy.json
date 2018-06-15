@@ -20,6 +20,13 @@
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
     },
+	"storageURL": {
+      "type": "string",
+      "defaultValue": "https://github.com/raje678/PrivateLabelLite/tree/master/Scripts/pwadb.bacpac",
+      "metadata": {
+        "description": "The URL for the GitHub repository that contains the project to deploy."
+      }
+    },
     "branch": {
       "type": "string",
       "defaultValue": "master",
@@ -107,7 +114,26 @@
             "maxSizeBytes": "1073741824",
             "requestedServiceObjectiveName": "[variables('appDBRequestedServiceObjectiveName')]"
           }
-        }
+        },
+          "resources": [
+            {
+              "name": "pwadb",
+              "type": "extensions",
+              "apiVersion": "2014-04-01-preview",
+              "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('sqlserverName'), '/', parameters('databaseName')), '/')[0], split(concat(variables('sqlserverName'), '/', parameters('databaseName')), '/')[1])]"
+              ],
+              "tags": {
+                "displayName": "pwadb"
+              },
+              "properties": {
+                "storageUri": "[parameters('repoURL')]",
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "operationMode": "Import"
+              }
+            }
+          ]
       ]
     },
     {
