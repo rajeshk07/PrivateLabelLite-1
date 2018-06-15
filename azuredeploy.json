@@ -167,14 +167,13 @@
             "IsManualIntegration": true
           }
         }
-      ],
-	  "outputs": {
+      ]	  
+    }
+  ],
+  "outputs": {
 		  "resourceName": {
 			  "type": "string",
 			  "value": "[resourceGroup().name]"
 	  }
 	  }
-	  
-    }
-  ]
 }
