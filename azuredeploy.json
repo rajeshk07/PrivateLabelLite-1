@@ -20,13 +20,13 @@
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
     },
-	"storageURL": {
-      "type": "string",
-      "defaultValue": "https://stagee56e234631d34429ad7.blob.core.windows.net/dbdacpac/pwadb.bacpac?sp=r&st=2018-06-15T21:59:19Z&se=2019-06-08T05:59:19Z&spr=https&sv=2017-11-09&sig=rBHuArzy%2B4yXTlLxuYhrDzvfKx2qQbwumgV1GDxIArQ%3D&sr=b",
-      "metadata": {
-        "description": "The URL for the GitHub repository that contains the project to deploy."
-      }
-    },
+	//"storageURL": {
+    //  "type": "string",
+    //  "defaultValue": "https://stagee56e234631d34429ad7.blob.core.windows.net/dbdacpac/pwadb.bacpac?sp=r&st=2018-06-15T21:59:19Z&se=2019-06-08T05:59:19Z&spr=https&sv=2017-11-09&sig=rBHuArzy%2B4yXTlLxuYhrDzvfKx2qQbwumgV1GDxIArQ%3D&sr=b",
+    //  "metadata": {
+    //    "description": "The URL for the GitHub repository that contains the project to deploy."
+    //  }
+    //},
     "branch": {
       "type": "string",
       "defaultValue": "master",
@@ -113,28 +113,28 @@
             "edition": "[variables('appDBEdition')]",
             "maxSizeBytes": "1073741824",
             "requestedServiceObjectiveName": "[variables('appDBRequestedServiceObjectiveName')]"
-          },
-          "resources": [
-            {
-              "name": "[variables('appDBName')]",
-              "type": "extensions",
-              "apiVersion": "2014-04-01-preview",
-              "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[0], split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[1])]"
-              ],
-              "tags": {
-                "displayName": "appDB"
-              },
-                "properties": {
-                    "storageUri": "[parameters('storageURL')]",
-                    "administratorLogin": "[variables('administratorLogin')]",
-                    "administratorLoginPassword": "[variables('administratorLoginPassword')]",
-                    "operationMode": "Import",
-					"storageKeyType": "SharedAccessKey",
-					"storageKey": "?",
-                }
-            }
-          ]
+          }//,
+          //"resources": [
+           // {
+           //   "name": "[variables('appDBName')]",
+           //   "type": "extensions",
+           //   "apiVersion": "2014-04-01-preview",
+           //   "dependsOn": [
+           //     "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[0], split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[1])]"
+           //   ],
+           //   "tags": {
+           //     "displayName": "appDB"
+           //   },
+           //     "properties": {
+           //         "storageUri": "[parameters('storageURL')]",
+           //         "administratorLogin": "[variables('administratorLogin')]",
+           //         "administratorLoginPassword": "[parameters('SQL Password')]",
+           //         "operationMode": "Import",
+			//		"storageKeyType": "SharedAccessKey",
+			//		"storageKey": "?",
+            //    }
+           // }
+         // ]
         }
       ]
     },

@@ -63,9 +63,9 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 
   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 !IGNORE_MANIFEST_PARAM! -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
   IF !ERRORLEVEL! NEQ 0 goto error
-:: echo rajesh kareti
-::	Powershell.exe -executionpolicy remotesigned -File  D:\home\site\wwwroot\customscript.ps1
-::	echo done with powershell
+ echo rajesh kareti
+	Powershell.exe -executionpolicy remotesigned -File  D:\home\site\wwwroot\customscript.ps1
+	echo done with powershell
 )
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
