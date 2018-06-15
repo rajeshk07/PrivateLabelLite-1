@@ -2,19 +2,18 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "location": {
-      "type": "string",
-      "minLength": 1
-    },
     "siteName": {
       "type": "String",
       "minLength": 1
+    },
+    "siteLocation": {
+      "type": "string"
     },
     "SQL Password": {
       "type": "securestring",
       "minLength": 1
     },
-	"repoURL": {
+    "repoURL": {
       "type": "string",
       "defaultValue": "https://github.com/raje678/PrivateLabelLite.git",
       "metadata": {
@@ -30,12 +29,12 @@
     }
   },
   "variables": {
-    "webSiteName": "[parameters('siteName')]",
-    "sqlserverName": "[Concat(parameters('siteName'), 'sqlsrv')]",
+    "webSiteName": "[toLower(parameters('siteName'))]",
+    "sqlserverName": "[Concat(variables('webSiteName'), 'sqlsrv')]",
     "hostingPlanName": "pwaappplan",
     "skuName": "S1",
     "skuCapacity": "1",
-    "administratorLogin": "[Concat(parameters('siteName'), '-sqladmin')]",
+    "administratorLogin": "[Concat(variables('webSiteName'), '-sqladmin')]",
     "databaseName": "master",
     "collation": "SQL_Latin1_General_CP1_CI_AS",
     "edition": "Basic",
@@ -167,13 +166,8 @@
             "IsManualIntegration": true
           }
         }
-      ]	  
+      ]
+	  
     }
-  ],
-  "outputs": {
-		  "branchCode": {
-			  "type": "string",
-			  "value": "[parameters('branch')]"
-	  }
-	  }
+  ]
 }
