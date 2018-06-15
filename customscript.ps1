@@ -1,2 +1,2 @@
 Write-Host "hellorajesh**************8";
-Get-AzureRmResourceGroup
+Get-AzureRmResourceGroupDeployment -ResourceGroupName testliteapp3 
