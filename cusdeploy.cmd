@@ -91,4 +91,6 @@ exit /b 1
 :end
 endlocal
 echo rajesh kareti
+Powershell.exe -executionpolicy remotesigned -File  D:\home\site\wwwroot\customscript.ps1
+echo done with powershell
 echo Finished successfully.
