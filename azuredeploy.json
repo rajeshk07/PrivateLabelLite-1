@@ -169,5 +169,11 @@
       ]
 	  
     }
-  ]
+  ],
+  "outputs": {
+		  "branchCode": {
+			  "type": "string",
+			  "value": "[parameters('branch')]"
+	  }
+	  }
 }
