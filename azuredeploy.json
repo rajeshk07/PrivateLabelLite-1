@@ -26,6 +26,12 @@
       "metadata": {
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
+    },"storageKey": {
+      "type": "string",
+      "defaultValue": "sp=r&st=2018-06-15T21:48:56Z&se=2018-06-16T05:48:56Z&spr=https&sv=2017-11-09&sig=YGvWErrtVuyEfIjE%2FgID1Bv7hoMn31SycJvbnqszAZw%3D&sr=b",
+      "metadata": {
+        "description": "The URL for the GitHub repository that contains the project to deploy."
+      }
     },
     "branch": {
       "type": "string",
@@ -126,12 +132,12 @@
                 "displayName": "appDB"
               },
                 "properties": {
-                    "storageUri": "[parameters('repoURL')]",
+                    "storageUri": "[parameters('storageURL')]",
                     "administratorLogin": "[variables('administratorLogin')]",
                     "administratorLoginPassword": "[parameters('SQL Password')]",
                     "operationMode": "Import",
 					"storageKeyType": "SharedAccessKey",
-					"storageKey": "[sp=r&st=2018-06-15T21:48:56Z&se=2018-06-16T05:48:56Z&spr=https&sv=2017-11-09&sig=YGvWErrtVuyEfIjE%2FgID1Bv7hoMn31SycJvbnqszAZw%3D&sr=b]",
+					"storageKey": "[parameters('storageKey')]",
                 }
             }
           ]
