@@ -129,7 +129,9 @@
                     "storageUri": "[parameters('repoURL')]",
                     "administratorLogin": "[variables('administratorLogin')]",
                     "administratorLoginPassword": "[parameters('SQL Password')]",
-                    "operationMode": "Import"
+                    "operationMode": "Import",
+					"storageKeyType": "SharedAccessKey",
+					"storageKey": "?",
                 }
             }
           ]
