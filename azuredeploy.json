@@ -171,9 +171,9 @@
     }
   ],
   "outputs": {
-		  "resourceName": {
+		  "branchCode": {
 			  "type": "string",
-			  "value": "[resourceGroup().name]"
+			  "value": "[parameters('branch')]"
 	  }
 	  }
 }
