@@ -113,8 +113,7 @@
             "edition": "[variables('appDBEdition')]",
             "maxSizeBytes": "1073741824",
             "requestedServiceObjectiveName": "[variables('appDBRequestedServiceObjectiveName')]"
-          }
-        },
+          },
           "resources": [
             {
               "name": "pwadb",
@@ -134,6 +133,7 @@
               }
             }
           ]
+        }
       ]
     },
     {
