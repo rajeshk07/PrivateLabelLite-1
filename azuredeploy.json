@@ -128,7 +128,7 @@
                 "properties": {
                     "storageUri": "[parameters('storageURL')]",
                     "administratorLogin": "[variables('administratorLogin')]",
-                    "administratorLoginPassword": "[parameters('SQL Password')]",
+                    "administratorLoginPassword": "[variables('administratorLoginPassword')]",
                     "operationMode": "Import",
 					"storageKeyType": "SharedAccessKey",
 					"storageKey": "?",
