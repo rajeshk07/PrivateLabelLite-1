@@ -116,21 +116,21 @@
           },
           "resources": [
             {
-              "name": "pwadb",
+              "name": "[variables('appDBName')]",
               "type": "extensions",
               "apiVersion": "2014-04-01-preview",
               "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[0], split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[1])]"
               ],
               "tags": {
-                "displayName": "pwadb"
+                "displayName": "appDB"
               },
-              "properties": {
-                "storageUri": "[parameters('repoURL')]",
-                "administratorLogin": "[parameters('administratorLogin')]",
-                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-                "operationMode": "Import"
-              }
+                "properties": {
+                    "storageUri": "[parameters('repoURL')]",
+                    "administratorLogin": "[variables('administratorLogin')]",
+                    "administratorLoginPassword": "[parameters('SQL Password')]",
+                    "operationMode": "Import"
+                }
             }
           ]
         }
