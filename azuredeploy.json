@@ -173,6 +173,7 @@
 			  "type": "string",
 			  "value": "[resourceGroup().name]"
 	  }
+	  }
 	  
     }
   ]
