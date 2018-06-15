@@ -22,13 +22,7 @@
     },
 	"storageURL": {
       "type": "string",
-      "defaultValue": "https://stagee56e234631d34429ad7.blob.core.windows.net/dbdacpac/pwadb.bacpac",
-      "metadata": {
-        "description": "The URL for the GitHub repository that contains the project to deploy."
-      }
-    },"storageKey": {
-      "type": "string",
-      "defaultValue": "sp=r&st=2018-06-15T21:48:56Z&se=2018-06-16T05:48:56Z&spr=https&sv=2017-11-09&sig=YGvWErrtVuyEfIjE%2FgID1Bv7hoMn31SycJvbnqszAZw%3D&sr=b",
+      "defaultValue": "https://stagee56e234631d34429ad7.blob.core.windows.net/dbdacpac/pwadb.bacpac?sp=r&st=2018-06-15T21:59:19Z&se=2019-06-08T05:59:19Z&spr=https&sv=2017-11-09&sig=rBHuArzy%2B4yXTlLxuYhrDzvfKx2qQbwumgV1GDxIArQ%3D&sr=b",
       "metadata": {
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
@@ -137,7 +131,7 @@
                     "administratorLoginPassword": "[parameters('SQL Password')]",
                     "operationMode": "Import",
 					"storageKeyType": "SharedAccessKey",
-					"storageKey": "[parameters('storageKey')]",
+					"storageKey": "?",
                 }
             }
           ]
