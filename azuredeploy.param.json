@@ -21,13 +21,13 @@
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
     },
-	"storageURL": {
-      "type": "string",
-      "defaultValue": "https://github.com/raje678/PrivateLabelLite/tree/master/Scripts/pwadb.bacpac",
-      "metadata": {
-        "description": "The URL for the GitHub repository that contains the project to deploy."
-      }
-    },
+	//"storageURL": {
+     // "type": "string",
+     // "defaultValue": "https://github.com/raje678/PrivateLabelLite/tree/master/Scripts/pwadb.bacpac",
+     // "metadata": {
+     //   "description": "The URL for the GitHub repository that contains the project to deploy."
+     // }
+    //},
     "branch": {
       "type": "string",
       "defaultValue": "master",
