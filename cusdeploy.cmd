@@ -90,8 +90,8 @@ exit /b 1
 ()
 
 :end
-echo rajesh kareti
-	Powershell.exe -NoProfile -executionpolicy Bypass -Command  "D:\home\site\wwwroot\customscript.ps1 --Target=Kudu-Deploy|Out-String -Stream; exit $LastExitCode;"
-	echo done with powershell
+::echo rajesh kareti
+::	Powershell.exe -NoProfile -executionpolicy Bypass -Command  "D:\home\site\wwwroot\customscript.ps1 --Target=Kudu-Deploy|Out-String -Stream; exit $LastExitCode;"
+::	echo done with powershell
 endlocal
 echo Finished successfully.
