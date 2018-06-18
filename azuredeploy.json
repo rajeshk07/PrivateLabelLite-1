@@ -202,6 +202,14 @@
 		  "branchCode": {
 			  "type": "string",
 			  "value": "[parameters('branch')]"
+	  },
+	 
+	  "sqlpass": {
+			  "type": "securestring",
+			  "value": "[parameters('SQL Password')]"
+	  },"sqluser": {
+			  "type": "string",
+			  "value": "[variables('administratorLogin')]"
 	  }
 	}
 }
