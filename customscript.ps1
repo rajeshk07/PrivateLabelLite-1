@@ -1,4 +1,3 @@
 Write-Host "hellorajesh**************";
-Login-AzureRmAccount;
-Get-AzureRmResourceGroupDeployment -ResourceGroupName testliteapp2;
+Write-Host $branch
 
