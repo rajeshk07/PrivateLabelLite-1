@@ -210,5 +210,5 @@
 			  "type": "string",
 			  "value": "[variables('administratorLogin')]"
 	  }
-	  
+	}  
 }
