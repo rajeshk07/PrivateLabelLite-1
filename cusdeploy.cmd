@@ -65,9 +65,7 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 
   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 !IGNORE_MANIFEST_PARAM! -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
   IF !ERRORLEVEL! NEQ 0 goto error
-  echo printing environmentvariable
-echo %APPSETTING_WEBSITE_SITE_NAME%
-echo %SQLCONNSTR_DefaultConnection%
+
 )
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
