@@ -1,4 +1,4 @@
-::@if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
+@if "%SCM_TRACE_LEVEL%" NEQ "4" @echo on
 
 :: ----------------------
 :: KUDU Deployment Script
@@ -97,5 +97,7 @@ echo printing environmentvariable
 echo %APPSETTING_WEBSITE_SITE_NAME%
 echo %SQLCONNSTR_DefaultConnection%
 SET CONN_STRING=%SQLCONNSTR_DefaultConnection%
+call :strLen CONN_STRING strlen
+echo String is %strlen% characters long
 echo %CONN_STRING%
 echo Finished successfully.
