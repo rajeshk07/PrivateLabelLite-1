@@ -1,4 +1,4 @@
-@if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
+::@if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
 
 :: ----------------------
 :: KUDU Deployment Script
@@ -64,9 +64,6 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 !IGNORE_MANIFEST_PARAM! -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
-echo printing environmentvariable
-echo %APPSETTING_WEBSITE_SITE_NAME%
-echo %SQLCONNSTR_DefaultConnection%
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
@@ -96,4 +93,7 @@ exit /b 1
 ::	Powershell.exe -NoProfile -executionpolicy Bypass -Command  "D:\home\site\wwwroot\customscript.ps1 --Target=Kudu-Deploy|Out-String -Stream; exit $LastExitCode;"
 ::	echo done with powershell
 endlocal
+echo printing environmentvariable
+echo %APPSETTING_WEBSITE_SITE_NAME%
+echo %SQLCONNSTR_DefaultConnection%
 echo Finished successfully.
