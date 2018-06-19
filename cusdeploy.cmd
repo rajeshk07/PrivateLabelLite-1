@@ -98,11 +98,11 @@ exit /b 1
 ::	Powershell.exe -NoProfile -executionpolicy Bypass -Command  "D:\home\site\wwwroot\customscript.ps1 --Target=Kudu-Deploy|Out-String -Stream; exit $LastExitCode;"
 ::	echo done with powershell
 endlocal
-echo printing environmentvariable
-echo %APPSETTING_WEBSITE_SITE_NAME%
-echo %SQLCONNSTR_DefaultConnection%
-SET CONN_STRING=%SQLCONNSTR_DefaultConnection%
-call :strLen CONN_STRING strlen
-echo String is %strlen% characters long
-echo %CONN_STRING%
+::echo printing environmentvariable
+::echo %APPSETTING_WEBSITE_SITE_NAME%
+::echo %SQLCONNSTR_DefaultConnection%
+::SET CONN_STRING=%SQLCONNSTR_DefaultConnection%
+::call :strLen CONN_STRING strlen
+::echo String is %strlen% characters long
+::echo %CONN_STRING%
 echo Finished successfully.
