@@ -38,6 +38,8 @@ IF NOT DEFINED NEXT_MANIFEST_PATH (
   )
 )
 
+
+
 IF NOT DEFINED KUDU_SYNC_CMD (
   :: Install kudu sync
   echo Installing Kudu Sync
@@ -47,6 +49,7 @@ IF NOT DEFINED KUDU_SYNC_CMD (
   :: Locally just running "kuduSync" would also work
   SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
 )
+SET
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
@@ -94,6 +97,7 @@ exit /b 1
 ::	echo done with powershell
 endlocal
 echo printing environmentvariable
+SET
 echo %APPSETTING_WEBSITE_SITE_NAME%
 echo %SQLCONNSTR_DefaultConnection%
 SET CONN_STRING=%SQLCONNSTR_DefaultConnection%

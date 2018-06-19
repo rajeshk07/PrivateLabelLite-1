@@ -1,6 +1,12 @@
 Write-Output "hellorajesh**************";
 
 gci env:* | sort-object name;
+
+sitename = Get-ChildItem Env:WEBSITE_RESOURCE_GROUP
+
+Get-AzureRmResourceGroup -Name "EngineerBlog"
+
+
 Get-ChildItem Env:SQLCONNSTR_DefaultConnection
 
 Write-Output $SQLCONNSTR_DefaultConnection;
