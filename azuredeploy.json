@@ -9,10 +9,10 @@
     "siteLocation": {
       "type": "string"
     },
-   // "SQL Password": {
-    //  "type": "securestring",
-   //   "minLength": 1
-   // },
+    "SQL Password": {
+      "type": "securestring",
+      "minLength": 1
+    },
     "repoURL": {
       "type": "string",
       "defaultValue": "https://github.com/raje678/PrivateLabelLite.git",
@@ -37,7 +37,6 @@
   },
   "variables": {
     "webSiteName": "[toLower(parameters('siteName'))]",
-	"sqlpassword":"samplepassword",
     "sqlserverName": "[Concat(variables('webSiteName'), 'sqlsrv')]",
     "hostingPlanName": "pwaappplan",
     "skuName": "S1",
@@ -64,7 +63,7 @@
       "apiVersion": "2014-04-01-preview",
       "properties": {
         "administratorLogin": "[variables('administratorLogin')]",
-        "administratorLoginPassword": "[variables('sqlpassword')]"
+        "administratorLoginPassword": "[parameters('SQL Password')]"
       },
       "resources": [
         {
@@ -177,7 +176,7 @@
           ],
           "properties": {
             "DefaultConnection": {
-              "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('appDBName'), ';User Id=', variables('administratorLogin'), '@', variables('sqlserverName'), ';Password=', variables('sqlpassword'), ';')]",
+              "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', variables('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('SQL Password'), ';')]",
               "type": "SQLServer"
             }
           }
@@ -205,7 +204,10 @@
 			  "value": "[parameters('branch')]"
 	  },
 	 
-	  "sqluser": {
+	  "sqlpass": {
+			  "type": "securestring",
+			  "value": "[parameters('SQL Password')]"
+	  },"sqluser": {
 			  "type": "string",
 			  "value": "[variables('administratorLogin')]"
 	  }
