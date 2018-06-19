@@ -65,7 +65,8 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 echo printing environmentvariable
-echo "$SQLCONNSTR_DefaultConnection"
+echo %APPSETTING_WEBSITE_SITE_NAME%
+echo %SQLCONNSTR_DefaultConnection%
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
