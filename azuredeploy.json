@@ -64,7 +64,7 @@
       "apiVersion": "2014-04-01-preview",
       "properties": {
         "administratorLogin": "[variables('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('SQL Password')]"
+        "administratorLoginPassword": "[variables('sqlpassword')]"
       },
       "resources": [
         {
