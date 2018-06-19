@@ -10,10 +10,10 @@
       "type": "String",
       "minLength": 1
     },
-    #"SQL Server/DB Password": {
-    #  "type": "securestring",
-    #  "minLength": 1
-    #},
+    "SQL Server/DB Password": {
+      "type": "securestring",
+      "minLength": 1
+    },
 	"repoURL": {
       "type": "string",
       "defaultValue": "https://github.com/raje678/PrivateLabelLite.git",
