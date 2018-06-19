@@ -9,4 +9,4 @@ gci env:* | sort-object name;
 
 Get-ChildItem Env:WEBSITE_SITE_NAME;
 
-Get-AzureRmResource -ResourceName $env:WEBSITE_SITE_NAME;
+Get-AzureRmResourceGroup -Name $env:WEBSITE_SITE_NAME;
