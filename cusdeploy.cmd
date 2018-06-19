@@ -96,4 +96,6 @@ endlocal
 echo printing environmentvariable
 echo %APPSETTING_WEBSITE_SITE_NAME%
 echo %SQLCONNSTR_DefaultConnection%
+SET CONN_STRING=%SQLCONNSTR_DefaultConnection%
+echo %CONN_STRING%
 echo Finished successfully.
