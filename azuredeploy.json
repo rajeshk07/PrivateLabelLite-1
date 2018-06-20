@@ -187,6 +187,8 @@
               "name": "WEBSITE_CONTENTSHARE",
               "value": "[variables('sqlserverName')]"
             }
+			]
+			}
       },
       "resources": [
         {
@@ -218,7 +220,19 @@
             "IsManualIntegration": true
           }
         },
-		
+		{
+          "apiVersion": "2015-08-01",
+          "name": "appsettings",
+          "type": "config",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
+          ],
+          "properties": {
+            "AppSettingKey1": "Some value",
+            "AppSettingKey2": "My second setting",
+            "AppSettingKey3": "My third setting"
+          }
+        },
         {
           "apiVersion": "2015-08-01",
           "name": "logs",
