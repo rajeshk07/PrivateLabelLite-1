@@ -151,28 +151,7 @@
             //    }
            // }
          // ]
-        },
-		{
-          "type": "extensions",
-          "name": "CustomScriptExtension",
-          "apiVersion": "2015-06-15",
-          "location": "[resourceGroup().location]",
-          "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[0], split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[1])]"
-          ],
-          "properties": {
-            "publisher": "Microsoft.Compute",
-            "type": "CustomScriptExtension",
-            "typeHandlerVersion": "1.8",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-              "fileUris": [
-                "[concat(parameters('_artifactsLocation'), '/', variables('ScriptFolder'), '/', variables('ScriptFileName'), parameters('_artifactsLocationSasToken'))]"
-              ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('scriptFolder'), '/', variables('scriptFileName'))]"
-            }
-          }
-        }
+        }		
       ]
     },
     {
@@ -233,7 +212,28 @@
         }
       ]
 	  
-    }
+    },
+	{
+          "type": "extensions",
+          "name": "CustomScriptExtension",
+          "apiVersion": "2015-06-15",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[0], split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[1])]"
+          ],
+          "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.8",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "fileUris": [
+                "[concat(parameters('_artifactsLocation'), '/', variables('ScriptFolder'), '/', variables('ScriptFileName'), parameters('_artifactsLocationSasToken'))]"
+              ],
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('scriptFolder'), '/', variables('scriptFileName'))]"
+            }
+          }
+        }
   ],
   "outputs": {
 		  "branchCode": {
