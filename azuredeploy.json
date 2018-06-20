@@ -180,7 +180,13 @@
       ],
       "properties": {
         "name": "[variables('webSiteName')]",
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+		"siteConfig": {
+          "appSettings": [
+            {
+              "name": "WEBSITE_CONTENTSHARE",
+              "value": "[variables('sqlserverName')]"
+            }
       },
       "resources": [
         {
@@ -250,18 +256,6 @@
             "detailedErrorMessages": {
               "enabled": true
             }
-          }
-        },
-        {
-          "apiVersion": "2015-08-01",
-          "name": "slotconfignames",
-          "type": "config",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
-          ],
-          "properties": {
-            "connectionStringNames": [ "ConnString1" ],
-            "appSettingNames": [ "AppSettingKey1", "AppSettingKey2" ]
           }
         }
       ]
