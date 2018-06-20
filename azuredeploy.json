@@ -218,6 +218,9 @@
 	  "name": "testRaj",
 	  "type": "variables",
 	  "apiVersion": "2015-10-31",
+	  "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
+          ],
 	  "properties": {
 		"value": "[variables('webSiteName')]",
 		"description": "test",
