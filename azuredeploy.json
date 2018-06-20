@@ -218,9 +218,7 @@
           "name": "CustomScriptExtension",
           "apiVersion": "2015-06-15",
           "location": "[resourceGroup().location]",
-          "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[0], split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[1])]"
-          ],
+      
           "properties": {
             "publisher": "Microsoft.Compute",
             "type": "CustomScriptExtension",
