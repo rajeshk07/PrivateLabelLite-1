@@ -210,17 +210,7 @@
             "branch": "[parameters('branch')]",
             "IsManualIntegration": true
           }
-        },
-		{
-			  "name": "testRaj",
-			  "type": "variables",
-			  "apiVersion": "2015-10-31",
-			  "properties": {
-				"value": "[variables('webSiteName')]",
-				"description": "test",
-				"isEncrypted": false
-			  }
-		}		
+        }		
       ]
 	  
     },
