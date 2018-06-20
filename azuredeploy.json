@@ -194,7 +194,9 @@
             "DefaultConnection": {
               "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', variables('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('SQL Password'), ';')]",
               "type": "SQLServer"
-            }
+            },
+			"ConnString1": { "value": "My custom connection string", "type": "custom" },
+            "ConnString2": { "value": "My SQL connection string", "type": "SQLAzure" }
           }
         },
 		{
@@ -221,18 +223,6 @@
             "AppSettingKey1": "Some value",
             "AppSettingKey2": "My second setting",
             "AppSettingKey3": "My third setting"
-          }
-        },
-        {
-          "apiVersion": "2015-08-01",
-          "name": "connectionstrings",
-          "type": "config",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
-          ],
-          "properties": {
-            "ConnString1": { "value": "My custom connection string", "type": "custom" },
-            "ConnString2": { "value": "My SQL connection string", "type": "SQLAzure" }
           }
         },
         {
