@@ -209,29 +209,74 @@
             "branch": "[parameters('branch')]",
             "IsManualIntegration": true
           }
+        },
+		{
+          "apiVersion": "2015-08-01",
+          "name": "appsettings",
+          "type": "config",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
+          ],
+          "properties": {
+            "AppSettingKey1": "Some value",
+            "AppSettingKey2": "My second setting",
+            "AppSettingKey3": "My third setting"
+          }
+        },
+        {
+          "apiVersion": "2015-08-01",
+          "name": "connectionstrings",
+          "type": "config",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
+          ],
+          "properties": {
+            "ConnString1": { "value": "My custom connection string", "type": "custom" },
+            "ConnString2": { "value": "My SQL connection string", "type": "SQLAzure" }
+          }
+        },
+        {
+          "apiVersion": "2015-08-01",
+          "name": "logs",
+          "type": "config",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
+          ],
+          "properties": {
+            "applicationLogs": {
+              "fileSystem": {
+                "level": "Warning"
+              }
+            },
+            "httpLogs": {
+              "fileSystem": {
+                "retentionInMb": 40,
+                "enabled": true
+              }
+            },
+            "failedRequestsTracing": {
+              "enabled": true
+            },
+            "detailedErrorMessages": {
+              "enabled": true
+            }
+          }
+        },
+        {
+          "apiVersion": "2015-08-01",
+          "name": "slotconfignames",
+          "type": "config",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
+          ],
+          "properties": {
+            "connectionStringNames": [ "ConnString1" ],
+            "appSettingNames": [ "AppSettingKey1", "AppSettingKey2" ]
+          }
         }
       ]
 	  
-    },
-	{
-          "type": "extensions",
-          "name": "CustomScriptExtension",
-          "apiVersion": "2015-06-15",
-          "location": "[resourceGroup().location]",
-      
-          "properties": {
-            "publisher": "Microsoft.Compute",
-            "type": "CustomScriptExtension",
-            "typeHandlerVersion": "1.8",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-              "fileUris": [
-                "[concat(parameters('_artifactsLocation'), '/', variables('ScriptFolder'), '/', variables('ScriptFileName'), parameters('_artifactsLocationSasToken'))]"
-              ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('scriptFolder'), '/', variables('scriptFileName'))]"
-            }
-          }
-        }
+    }
   ],
   "outputs": {
 		  "branchCode": {
