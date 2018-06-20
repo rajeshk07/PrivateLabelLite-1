@@ -1,3 +1,4 @@
 [config]
 SCM_POST_DEPLOYMENT_ACTIONS_PATH = deployment\postdeployactions\
-command = powershell -NoProfile -NoLogo -ExecutionPolicy Unrestricted -Command "& "$pwd\deploy.ps1" 2>&1 | echo"
+WEBSITE_DISABLE_SCM_SEPARATION = true
+command = cusdeploy.cmd
