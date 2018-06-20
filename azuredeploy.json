@@ -20,6 +20,20 @@
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
     },
+	"_artifactsLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
+      },
+      "defaultValue": "https://github.com/raje678/PrivateLabelLite"
+    },
+	 "_artifactsLocationSasToken": {
+      "type": "securestring",
+      "metadata": {
+        "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
+      },
+      "defaultValue": ""
+    },
 	//"storageURL": {
     //  "type": "string",
     //  "defaultValue": "https://stagee56e234631d34429ad7.blob.core.windows.net/dbdacpac/pwadb.bacpac?sp=r&st=2018-06-15T21:59:19Z&se=2019-06-08T05:59:19Z&spr=https&sv=2017-11-09&sig=rBHuArzy%2B4yXTlLxuYhrDzvfKx2qQbwumgV1GDxIArQ%3D&sr=b",
@@ -50,7 +64,9 @@
     "appDBName": "pwadb",
     "appDBCollation": "SQL_Latin1_General_CP1_CI_AS",
     "appDBEdition": "Basic",
-    "appDBRequestedServiceObjectiveName": "Basic"
+    "appDBRequestedServiceObjectiveName": "Basic",
+	"scriptFileName": "customscriptarm.ps1",
+	"scriptFolder": "."
   },
   "resources": [
     {
@@ -135,6 +151,27 @@
             //    }
            // }
          // ]
+        },
+		{
+          "type": "extensions",
+          "name": "CustomScriptExtension",
+          "apiVersion": "2015-06-15",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[0], split(concat(variables('sqlserverName'), '/', variables('appDBName')), '/')[1])]"
+          ],
+          "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.8",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "fileUris": [
+                "[concat(parameters('_artifactsLocation'), '/', variables('ScriptFolder'), '/', variables('ScriptFileName'), parameters('_artifactsLocationSasToken'))]"
+              ],
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('scriptFolder'), '/', variables('scriptFileName'))]"
+            }
+          }
         }
       ]
     },
