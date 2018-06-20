@@ -186,9 +186,13 @@
             {
               "name": "WEBSITE_CONTENTSHARE",
               "value": "[variables('sqlserverName')]"
+            },
+			{
+              "name": "WEBSITE_NODE_DEFAULT_VERSION",
+              "value": "6.5.0"
             }
-			]
-			}
+		  ]
+		}
       },
       "resources": [
         {
