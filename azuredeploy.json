@@ -180,19 +180,8 @@
       ],
       "properties": {
         "name": "[variables('webSiteName')]",
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-		"siteConfig": {
-          "appSettings": [
-            {
-              "name": "WEBSITE_CONTENTSHARE",
-              "value": "[variables('sqlserverName')]"
-            },
-			{
-              "name": "WEBSITE_NODE_DEFAULT_VERSION",
-              "value": "6.5.0"
-            }
-		  ]
-		}
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+		
       },
       "resources": [
         {
@@ -206,9 +195,7 @@
             "DefaultConnection": {
               "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', variables('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('SQL Password'), ';')]",
               "type": "SQLServer"
-            },
-			"ConnString1": { "value": "My custom connection string", "type": "custom" },
-            "ConnString2": { "value": "My SQL connection string", "type": "SQLAzure" }
+            }
           }
         },
 		{
@@ -225,45 +212,15 @@
           }
         },
 		{
-          "apiVersion": "2015-08-01",
-          "name": "appsettings",
-          "type": "config",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
-          ],
-          "properties": {
-            "AppSettingKey1": "Some value",
-            "AppSettingKey2": "My second setting",
-            "AppSettingKey3": "My third setting"
-          }
-        },
-        {
-          "apiVersion": "2015-08-01",
-          "name": "logs",
-          "type": "config",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
-          ],
-          "properties": {
-            "applicationLogs": {
-              "fileSystem": {
-                "level": "Warning"
-              }
-            },
-            "httpLogs": {
-              "fileSystem": {
-                "retentionInMb": 40,
-                "enabled": true
-              }
-            },
-            "failedRequestsTracing": {
-              "enabled": true
-            },
-            "detailedErrorMessages": {
-              "enabled": true
-            }
-          }
-        }
+		  "name": "testRaj",
+		  "type": "variables",
+		  "apiVersion": "2015-10-31",
+		  "properties": {
+			"value": "[variables('webSiteName')]",
+			"description": "test",
+			"isEncrypted": false
+		  }
+		}
       ]
 	  
     }
