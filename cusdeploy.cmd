@@ -50,15 +50,15 @@ IF NOT DEFINED KUDU_SYNC_CMD (
   SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
 )
 
-IF NOT DEFINED KUDU_EXEC_CMD (
+::IF NOT DEFINED KUDU_EXEC_CMD (
 :: Install kudu sync
-  echo Installing Kudu Sync
-  call npm install kudusync -g --silent
-  IF !ERRORLEVEL! NEQ 0 goto error
+::  echo Installing Kudu Exec
+ :: call npm install kudusync -g --silent
+  ::IF !ERRORLEVEL! NEQ 0 goto error
 
   :: Locally just running "kuduSync" would also work
-  SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
-)
+  ::SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
+::)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
