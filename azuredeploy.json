@@ -222,8 +222,9 @@
             "displayName": "WebAppSettings"
           },
           "properties": {
-            "key1": "value1",
-            "key2": "value2"
+            "SQL_SERVER": "[reference(resourceId('Microsoft.Sql/servers/', variables('sqlserverName')))]",
+            "SQL_SERVER_USER": "[concat(variables('administratorLogin'),'@',variables('sqlserverName'))]",
+			"SQL_SERVER_PD":"[parameters('SQL Password')]"
           }
         }		
       ]
