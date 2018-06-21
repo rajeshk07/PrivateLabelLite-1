@@ -223,9 +223,10 @@
             "displayName": "WebAppSettings"
           },
           "properties": {
-            "SERVER": "[concat(variables('sqlserverName'),'.database.windows.net')]",
-            "SERVER_UR": "[concat(variables('administratorLogin'),'@',variables('sqlserverName'))]",
-			"SERVER_PD":"[variables('passcode')]"
+            "key1": "[concat(variables('sqlserverName'),'.database.windows.net')]",
+            "key2": "[concat(variables('administratorLogin'),'@',variables('sqlserverName'))]",
+			"key3":"[variables('passcode')]",
+			"key4":"[parameters('siteName')]"
           }
         }		
       ]
