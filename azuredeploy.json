@@ -196,6 +196,10 @@
             "DefaultConnection": {
               "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', variables('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('SQL Password'), ';')]",
               "type": "SQLServer"
+            },
+			"conn_string_2":{
+              "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('appDBName'), ';User Id=', variables('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('SQL Password'), ';')]",
+              "type": 2
             }
           }
         },
