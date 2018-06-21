@@ -219,7 +219,7 @@
             "[resourceId('Microsoft.Web/sites', variables('webSiteName'))]"
           ],
           "tags": {
-            "displayName": "appsettings"
+            "displayName": "WebAppSettings"
           },
           "properties": {
             "key1": "value1",
