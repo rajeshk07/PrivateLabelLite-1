@@ -10,7 +10,7 @@
       "type": "string"
     },
     "SQL Password": {
-      "type": "securestring",
+      "type": "String",
       "minLength": 1
     },
     "repoURL": {
@@ -28,7 +28,7 @@
       "defaultValue": "https://github.com/raje678/PrivateLabelLite"
     },
 	 "_artifactsLocationSasToken": {
-      "type": "securestring",
+      "type": "String",
       "metadata": {
         "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
       },
