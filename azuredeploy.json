@@ -66,7 +66,8 @@
     "appDBEdition": "Basic",
     "appDBRequestedServiceObjectiveName": "Basic",
 	"scriptFileName": "customscriptarm.ps1",
-	"scriptFolder": "."
+	"scriptFolder": ".",
+	"passcode":"[parameters('SQL Password')]"
   },
   "resources": [
     {
@@ -222,9 +223,9 @@
             "displayName": "WebAppSettings"
           },
           "properties": {
-            "SQL_SERVER": "[reference(resourceId('Microsoft.Sql/servers/', variables('sqlserverName')))]",
-            "SQL_SERVER_USER": "[concat(variables('administratorLogin'),'@',variables('sqlserverName'))]",
-			"SQL_SERVER_PD":"[parameters('SQL Password')]"
+            "SERVER": "[concat(variables('sqlserverName'),'.database.windows.net')]",
+            "SERVER_UR": "[concat(variables('administratorLogin'),'@',variables('sqlserverName'))]",
+			"SERVER_PD":"[variables('passcode')]"
           }
         }		
       ]
