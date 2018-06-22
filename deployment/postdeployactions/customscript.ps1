@@ -10,7 +10,7 @@ $doc = (Get-Content $webConfig) -as [Xml]
 
 $root = $doc.get_DocumentElement();
 $myConString = $root.connectionStrings.add | ? {$_.name -eq 'PLLConnection'}
-$newCon = $myConString.connectionString.Replace('Server=','Server='$srvsql);
+$newCon = $myConString.connectionString.Replace('Server=','Server=$srvsql');
 $myConString.connectionString = $newCon
  
 $doc.Save($webConfig)
