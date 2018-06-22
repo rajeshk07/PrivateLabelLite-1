@@ -1,6 +1,4 @@
-@ECHO OFF
 
-::reading the DB connection details
 SET SERVER=%APPSETTING_key1%
 SET DB="pwadb"
 SET LOGIN=%APPSETTING_key2%
