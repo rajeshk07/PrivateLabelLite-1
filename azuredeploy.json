@@ -20,19 +20,19 @@
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
     },
-	"_artifactsLocation": {
+	"applicationId": {
       "type": "string",
       "metadata": {
-        "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
+        "description": "This is the application Id value."
       },
-      "defaultValue": "https://github.com/raje678/PrivateLabelLite"
+	  "minLength": 1
     },
-	 "_artifactsLocationSasToken": {
+	 "applicationPasscode": {
       "type": "String",
       "metadata": {
-        "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
+        "description": "This is the slot for the Application Passcode"
       },
-      "defaultValue": ""
+	  "minLength": 1
     },
 	//"storageURL": {
     //  "type": "string",
@@ -226,7 +226,9 @@
             "key1": "[concat(variables('sqlserverName'),'.database.windows.net')]",
             "key2": "[concat(variables('administratorLogin'),'@',variables('sqlserverName'))]",
 			"key3": "[parameters('SQL Password')]",
-			"key4": "[parameters('siteName')]"
+			"key4": "[parameters('siteName')]",
+			"key5": "[parameters('applicationId')]",
+			"key6": "[parameters('applicationPasscode')]"
           }
         }		
       ]
