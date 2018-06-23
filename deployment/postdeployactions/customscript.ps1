@@ -17,6 +17,9 @@ $objpas.value = $env:APPSETTING_key6;
 $allowres = $doc.configuration.appSettings.add | where {$_.Key -eq 'AllowedResellers'}
 $allowres.value = $env:APPSETTING_key7;
 
+$clientid = $doc.configuration.appSettings.add | where {$_.Key -eq 'ClientId'}
+$clientid.value = $env:APPSETTING_key5;
+
 $root = $doc.get_DocumentElement();
 $pllConString = $root.connectionStrings.add | ? {$_.name -eq 'PLLConnection'}
 $pllnewCon = $pllConString.connectionString.Replace('Server=;Initial Catalog=;Persist Security Info=False;User ID=;Password=;','Server='+$srvsql+';Initial Catalog=pwadb;Persist Security Info=False;User ID='+$usrsql+';Password='+$psdsql+';');
