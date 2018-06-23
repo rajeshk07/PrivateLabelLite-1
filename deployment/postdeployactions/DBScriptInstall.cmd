@@ -12,5 +12,5 @@ ECHO THERE WAS AN ERROR - on screen)
 
 SET APPSETTING_key7=rajesh.kareti@techdata.com
 
-sqlcmd -Q "UPDATE [dbo].[Configs] SET Value =%APPSETTING_key7% WHERE key='AllowedResellers'" -o "D:\home\LogFiles\kudu\deployment\Update_OutputLog.txt" -b
+sqlcmd -S %APPSETTING_key1% -d pwadb -U %APPSETTING_key2% -P %APPSETTING_key3% -Q "UPDATE [dbo].[Configs] SET Value =%APPSETTING_key7% WHERE key='AllowedResellers'" -o "D:\home\LogFiles\kudu\deployment\Update_OutputLog.txt" -b
 
