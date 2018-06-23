@@ -35,6 +35,13 @@
       },
 	  "minLength": 1
     },
+	"allowedResellers": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the Application Passcode"
+      },
+	  "minLength": 1
+    },
 	//"storageURL": {
      // "type": "string",
      // "defaultValue": "https://github.com/raje678/PrivateLabelLite/tree/master/Scripts/pwadb.bacpac",

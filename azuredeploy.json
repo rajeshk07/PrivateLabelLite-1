@@ -34,6 +34,13 @@
       },
 	  "minLength": 1
     },
+	"allowedResellers": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the Application Passcode"
+      },
+	  "minLength": 1
+    },
 	//"storageURL": {
     //  "type": "string",
     //  "defaultValue": "https://stagee56e234631d34429ad7.blob.core.windows.net/dbdacpac/pwadb.bacpac?sp=r&st=2018-06-15T21:59:19Z&se=2019-06-08T05:59:19Z&spr=https&sv=2017-11-09&sig=rBHuArzy%2B4yXTlLxuYhrDzvfKx2qQbwumgV1GDxIArQ%3D&sr=b",
@@ -228,7 +235,8 @@
 			"key3": "[parameters('SQL Password')]",
 			"key4": "[parameters('siteName')]",
 			"key5": "[parameters('applicationId')]",
-			"key6": "[parameters('applicationPasscode')]"
+			"key6": "[parameters('applicationPasscode')]",
+			"key7": "[parameters('allowedResellers')]"
           }
         }		
       ]
