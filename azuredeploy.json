@@ -41,6 +41,41 @@
       },
 	  "minLength": 1
     },
+	"clientId": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the ClientId"
+      },
+	  "minLength": 1
+    },
+	"clientSecret": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the ClientId"
+      },
+	  "minLength": 1
+    },
+	"resellerId": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the resellerId"
+      },
+	  "minLength": 1
+    },
+	"SOIN": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the SOIN"
+      },
+	  "minLength": 1
+    },
+	"resellerName": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the SOIN"
+      },
+	  "minLength": 1
+    },
 	//"storageURL": {
     //  "type": "string",
     //  "defaultValue": "https://stagee56e234631d34429ad7.blob.core.windows.net/dbdacpac/pwadb.bacpac?sp=r&st=2018-06-15T21:59:19Z&se=2019-06-08T05:59:19Z&spr=https&sv=2017-11-09&sig=rBHuArzy%2B4yXTlLxuYhrDzvfKx2qQbwumgV1GDxIArQ%3D&sr=b",
@@ -235,7 +270,12 @@
 			"key4": "[parameters('siteName')]",
 			"key5": "[parameters('applicationId')]",
 			"key6": "[parameters('applicationPasscode')]",
-			"key7": "[parameters('allowedResellers')]"
+			"key7": "[parameters('allowedResellers')]",
+			"key8": "[parameters('clientId')]",
+			"key9": "[parameters('clientSecret')]",
+			"key10": "[parameters('resellerId')]",
+			"key11": "[parameters('SOIN')]",
+			"key12": "[parameters('resellerName')]"
           }
         }		
       ]
