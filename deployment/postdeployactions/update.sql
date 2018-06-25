@@ -1,5 +1,6 @@
 GO
-SET IDENTITY_INSERT [dbo].[Configs] ON 
+SET IDENTITY_UPDATE [dbo].[Configs] ON 
 
-INSERT [dbo].[Configs] ([Id], [Key], [Value], [Type]) VALUES (7, N'client_secret1',%APPSETTING_key7%, N'Auth')
+UPDATE [dbo].[Configs] SET Value ='rajesh' WHERE Key='AllowedResellers'
+
 SET IDENTITY_INSERT [dbo].[Configs] OFF
