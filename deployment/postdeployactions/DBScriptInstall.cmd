@@ -11,4 +11,8 @@ ECHO THERE WAS AN ERROR - to file >> D:\home\LogFiles\kudu\deployment\Config_Dat
 ECHO THERE WAS AN ERROR - on screen)
 
 
+SQLCMD -S %APPSETTING_key1% -d pwadb -U %APPSETTING_key2% -P %APPSETTING_key3% -i "D:\home\site\wwwroot\DBScripts\update.sql" -o "D:\home\LogFiles\kudu\deployment\update_OutputLog.txt" -b
+IF %ERRORLEVEL% == 1 (
+ECHO THERE WAS AN ERROR - to file >> D:\home\LogFiles\kudu\deployment\update_OutputLog.txt
+ECHO THERE WAS AN ERROR - on screen)
 
