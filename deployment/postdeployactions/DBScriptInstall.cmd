@@ -22,6 +22,6 @@ sqlcmd -S %APPSETTING_key1% -d pwadb -U %APPSETTING_key2% -P %APPSETTING_key3% -
 
 sqlcmd -S %APPSETTING_key1% -d pwadb -U %APPSETTING_key2% -P %APPSETTING_key3% -Q "UPDATE [dbo].[Configs] SET Value ='%APPSETTING_key12%' WHERE Id=21" -o "D:\home\LogFiles\kudu\deployment\UpdateRName_OutputLog.txt" -b
 
-SET appURL='https://'%WEBSITE_HOSTNAME%
+SET appURL=https://%WEBSITE_HOSTNAME%
 
 sqlcmd -S %APPSETTING_key1% -d pwadb -U %APPSETTING_key2% -P %APPSETTING_key3% -Q "UPDATE [dbo].[Configs] SET Value ='%appURL%' WHERE Id=24" -o "D:\home\LogFiles\kudu\deployment\UpdateAppURL_OutputLog.txt" -b
