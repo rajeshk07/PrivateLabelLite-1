@@ -38,7 +38,7 @@
 	"allowedResellers": {
       "type": "String",
       "metadata": {
-        "description": "This is the slot for the Application Passcode"
+        "description": "This is the slot for the allowedResellers"
       },
 	  "minLength": 1
     },
@@ -52,7 +52,7 @@
 	"clientSecret": {
       "type": "String",
       "metadata": {
-        "description": "This is the slot for the ClientId"
+        "description": "This is the slot for the clientSecret"
       },
 	  "minLength": 1
     },
@@ -73,7 +73,7 @@
 	"resellerName": {
       "type": "String",
       "metadata": {
-        "description": "This is the slot for the SOIN"
+        "description": "This is the slot for the resellerName"
       },
 	  "minLength": 1
     },
