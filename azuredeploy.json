@@ -184,12 +184,11 @@
       "type": "Microsoft.Web/sites",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]"
+        "[resourceId('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]","[resourceId('Microsoft.Sql/servers/', variables('sqlserverName'))]"
       ],
       "properties": {
         "name": "[variables('webSiteName')]",
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
-		
       },
       "resources": [
         {
