@@ -42,6 +42,41 @@
       },
 	  "minLength": 1
     },
+	"clientId": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the ClientId"
+      },
+	  "minLength": 1
+    },
+	"clientSecret": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the ClientId"
+      },
+	  "minLength": 1
+    },
+	"resellerId": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the resellerId"
+      },
+	  "minLength": 1
+    },
+	"SOIN": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the SOIN"
+      },
+	  "minLength": 1
+    },
+	"resellerName": {
+      "type": "String",
+      "metadata": {
+        "description": "This is the slot for the SOIN"
+      },
+	  "minLength": 1
+    },
 	//"storageURL": {
      // "type": "string",
      // "defaultValue": "https://github.com/raje678/PrivateLabelLite/tree/master/Scripts/pwadb.bacpac",
