@@ -114,7 +114,7 @@
 	"scriptFileName": "customscriptarm.ps1",
 	"scriptFolder": ".",
 	"passcode":"[parameters('SQL Password')]",
-	  "repoGit":"[Concat(parameters('repoURL'),parameters('accessToken')]"
+	  "repoGit":"[Concat(parameters('repoURL'),parameters('accessToken'))]"
   },
   "resources": [
     {
