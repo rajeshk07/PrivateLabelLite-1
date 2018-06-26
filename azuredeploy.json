@@ -13,6 +13,10 @@
       "type": "String",
       "minLength": 1
     },
+   "accessToken": {
+      "type": "String",
+      "minLength": 1
+    },
     "repoURL": {
       "type": "string",
       "defaultValue": "https://github.com/techdata-cloudautomation/test.git?access_token=",
@@ -109,7 +113,8 @@
     "appDBRequestedServiceObjectiveName": "Basic",
 	"scriptFileName": "customscriptarm.ps1",
 	"scriptFolder": ".",
-	"passcode":"[parameters('SQL Password')]"
+	"passcode":"[parameters('SQL Password')]",
+	  "repoGit":"[Concat(parameters('repoURL'),parameters('accessToken')]"
   },
   "resources": [
     {
@@ -248,7 +253,7 @@
             "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
           ],
           "properties": {
-            "RepoUrl": "[parameters('repoURL')]",
+            "RepoUrl": "[variables('repoGit')]",
             "branch": "[parameters('branch')]",
             "IsManualIntegration": true
           }
