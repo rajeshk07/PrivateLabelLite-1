@@ -13,13 +13,9 @@
       "type": "String",
       "minLength": 1
     },
-   "accessToken": {
-      "type": "String",
-      "minLength": 1
-    },
     "repoURL": {
       "type": "string",
-      "defaultValue": "https://github.com/techdata-cloudautomation/test.git?access_token=",
+      "defaultValue": "https://github.com/raje678/PrivateLabelLite.git",
       "metadata": {
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
@@ -80,6 +76,27 @@
       },
 	  "minLength": 1
     },
+	"NotificationEmails": {
+      "type": "String",
+      "metadata": {
+        "description": "E-mail address that will be notified on every seat change"
+      },
+	  "minLength": 1
+    },
+	"NotificationEmailFrom": {
+      "type": "String",
+      "metadata": {
+        "description": "E-mail that will be used with Microsoft Server to send notifications"
+      },
+	  "minLength": 1
+    },
+	"NotificationEmailPassword": {
+      "type": "String",
+      "metadata": {
+        "description": "Password from NotificationE-mailFrom"
+      },
+	  "minLength": 1
+    },
 	//"storageURL": {
     //  "type": "string",
     //  "defaultValue": "https://stagee56e234631d34429ad7.blob.core.windows.net/dbdacpac/pwadb.bacpac?sp=r&st=2018-06-15T21:59:19Z&se=2019-06-08T05:59:19Z&spr=https&sv=2017-11-09&sig=rBHuArzy%2B4yXTlLxuYhrDzvfKx2qQbwumgV1GDxIArQ%3D&sr=b",
@@ -113,8 +130,7 @@
     "appDBRequestedServiceObjectiveName": "Basic",
 	"scriptFileName": "customscriptarm.ps1",
 	"scriptFolder": ".",
-	"passcode":"[parameters('SQL Password')]",
-	  "repoGit":"[Concat(parameters('repoURL'),parameters('accessToken'))]"
+	"passcode":"[parameters('SQL Password')]"
   },
   "resources": [
     {
@@ -253,7 +269,7 @@
             "[resourceId('Microsoft.Web/Sites', variables('webSiteName'))]"
           ],
           "properties": {
-            "RepoUrl": "[variables('repoGit')]",
+            "RepoUrl": "[parameters('repoURL')]",
             "branch": "[parameters('branch')]",
             "IsManualIntegration": true
           }
@@ -280,7 +296,10 @@
 			"key9": "[parameters('clientSecret')]",
 			"key10": "[parameters('resellerId')]",
 			"key11": "[parameters('SOIN')]",
-			"key12": "[parameters('resellerName')]"
+			"key12": "[parameters('resellerName')]",
+			"key13": "[parameters('NotificationEmails')]",
+			"key14": "[parameters('NotificationEmailFrom')]",
+			"key15": "[parameters('NotificationEmailPassword')]"
           }
         }		
       ]
