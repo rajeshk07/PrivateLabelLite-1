@@ -15,7 +15,7 @@
     },
     "repoURL": {
       "type": "string",
-      "defaultValue": "https://github.com/raje678/PrivateLabelLite.git",
+      "defaultValue": "https://f3ed60368de44aa3a461c0ac35253461c509aace@github.com/techdata-cloudautomation/test.git",
       "metadata": {
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
